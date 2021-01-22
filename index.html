@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common_color.css">
+    <script type="text/javascript">
+      function exit_page() {
+      location.href="https://www.youtube.com/?gl=JP&tab=r1";//ボタンを押すと指定したurlに飛ぶ
+      }
+      </script>
+    
+</head>
+<script>
+    /* ピッチインピッチアウトによる拡大縮小を禁止 */
+    document.documentElement.addEventListener('touchstart', function (e) {
+    if (e.touches.length >= 2) {e.preventDefault();}
+    }, {passive: false});
+    /* ダブルタップによる拡大を禁止 */
+    var t = 0;
+    document.documentElement.addEventListener('touchend', function (e) {
+    var now = new Date().getTime();
+    if ((now - t) < 450){
+      e.preventDefault();
+    }
+    t = now;
+    }, false);
+  </script>
+  <style>
+    body , input , textarea , select {
+    /* 入力欄にフォーカスが当たっても拡大しない */
+      font-size:17px;
+    }
+  </style>
+<body>
+            <div class="all">
+                <div class="title" style="text-align: center;">
+                    <img src="title_logo.png" alt="logo" class="title-logo">
+                </div>
+                    <div class="noren_to_buttons">
+                        <div class="noren_to_door">
+                            <img src="noren.png" alt="noren" class="noren box">
+                            <img src="right_door.png" alt="right_door" class="right_door box">
+                            <img src="left_door.png" alt="left_door" class="left_door box">
+                        </div>
+
+                        <div class="buttons">
+                            <p class="box comment">Hey guys, we have a gift for you! We just need you to answer a few questions first, then you'll earn a nice reward. It's very quick and simple! It only takes a minute. So come on, click on the following link to claim your gift. Don't wait, time is running out! Click on the link and enjoy your free gift. Now hurry up!</p>
+                            <input class="button box" type="button" onclick="setTimeout(exit_page,500);" value="hub"><!--(exit_page,ボタンを押してから0.5秒後に移動)-->
+                        </div>
+                    </div>
+            </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> <!--googleのCDN（ネットワーク経由でコンテンツを提供するサービス）よりjqueryをロード--> 
+    <script src="js.js"></script>
+</body>
+</html>
